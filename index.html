@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Duck Hunt</title>
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+    
+	<div class="game-wrapper">
+		<div class="game-grass"></div>
+		<div class="game-start"></div>
+		<div class="game-over"></div>
+		<form autocomplete="off">
+		<div>				
+			<input type="radio" name="shot_1_1" id="shot_1_1" class="shot" /><label for="shot_1_1"></label>
+			<input type="radio" name="shot_1_2" id="shot_1_2" class="shot" /><label for="shot_1_2"></label>
+			<input type="radio" name="shot_1_3" id="shot_1_3" class="shot" /><label for="shot_1_3"></label>
+			<input type="radio" name="duck_1" id="duck_1" class="duck"/><label for="duck_1"></label>					
+			<div class="dog_catch"></div>
+			<div class="dog_laugh"></div>
+			<div class="score_miss" id="score_1_miss"></div>
+			<div class="score_hit" id="score_1_hit"></div>
+			<div class="ammo" id="ammo_1_1"></div>
+			<div class="ammo" id="ammo_1_2"></div>
+			<div class="ammo" id="ammo_1_3"></div>
+		</div>
+		<div>		
+			<input type="radio" name="shot_2_1" id="shot_2_1" class="shot" /><label for="shot_2_1"></label>
+			<input type="radio" name="shot_2_2" id="shot_2_2" class="shot" /><label for="shot_2_2"></label>
+			<input type="radio" name="shot_2_3" id="shot_2_3" class="shot" /><label for="shot_2_3"></label>
+			<input type="radio" name="duck_2" id="duck_2" class="duck" /><label for="duck_2"></label>
+			<div class="dog_catch"></div>
+			<div class="dog_laugh"></div>
+			<div class="score_miss" id="score_2_miss"></div>
+			<div class="score_hit" id="score_2_hit"></div>
+			<div class="ammo" id="ammo_2_1"></div>
+			<div class="ammo" id="ammo_2_2"></div>
+			<div class="ammo" id="ammo_2_3"></div>
+		</div>
+		<div>		
+			<input type="radio" name="shot_3_1" id="shot_3_1" class="shot" /><label for="shot_3_1"></label>
+			<input type="radio" name="shot_3_2" id="shot_3_2" class="shot" /><label for="shot_3_2"></label>
+			<input type="radio" name="shot_3_3" id="shot_3_3" class="shot" /><label for="shot_3_3"></label>
+			<input type="radio" name="duck_3" id="duck_3" class="duck" /><label for="duck_3"></label>
+			<div class="dog_catch"></div>
+			<div class="dog_laugh"></div>
+			<div class="score_miss" id="score_3_miss"></div>
+			<div class="score_hit" id="score_3_hit"></div>
+			<div class="ammo" id="ammo_3_1"></div>
+			<div class="ammo" id="ammo_3_2"></div>
+			<div class="ammo" id="ammo_3_3"></div>
+		</div>
+		<div>		
+			<input type="radio" name="shot_4_1" id="shot_4_1" class="shot" /><label for="shot_4_1"></label>
+			<input type="radio" name="shot_4_2" id="shot_4_2" class="shot" /><label for="shot_4_2"></label>
+			<input type="radio" name="shot_4_3" id="shot_4_3" class="shot" /><label for="shot_4_3"></label>
+			<input type="radio" name="duck_4" id="duck_4" class="duck" /><label for="duck_4"></label>
+			<div class="dog_catch"></div>
+			<div class="dog_laugh"></div>
+			<div class="score_miss" id="score_4_miss"></div>
+			<div class="score_hit" id="score_4_hit"></div>
+			<div class="ammo" id="ammo_4_1"></div>
+			<div class="ammo" id="ammo_4_2"></div>
+			<div class="ammo" id="ammo_4_3"></div>
+		</div>
+		<div>		
+			<input type="radio" name="shot_5_1" id="shot_5_1" class="shot" /><label for="shot_5_1"></label>
+			<input type="radio" name="shot_5_2" id="shot_5_2" class="shot" /><label for="shot_5_2"></label>
+			<input type="radio" name="shot_5_3" id="shot_5_3" class="shot" /><label for="shot_5_3"></label>
+			<input type="radio" name="duck_5" id="duck_5" class="duck" /><label for="duck_5"></label>
+			<div class="dog_catch"></div>
+			<div class="dog_laugh"></div>
+			<div class="score_miss" id="score_5_miss"></div>
+			<div class="score_hit" id="score_5_hit"></div>
+			<div class="ammo" id="ammo_5_1"></div>
+			<div class="ammo" id="ammo_5_2"></div>
+			<div class="ammo" id="ammo_5_3"></div>
+		</div>
+		<div>		
+			<input type="radio" name="shot_6_1" id="shot_6_1" class="shot" /><label for="shot_6_1"></label>
+			<input type="radio" name="shot_6_2" id="shot_6_2" class="shot" /><label for="shot_6_2"></label>
+			<input type="radio" name="shot_6_3" id="shot_6_3" class="shot" /><label for="shot_6_3"></label>
+			<input type="radio" name="duck_6" id="duck_6" class="duck" /><label for="duck_6"></label>
+			<div class="dog_catch"></div>
+			<div class="dog_laugh"></div>
+			<div class="score_miss" id="score_6_miss"></div>
+			<div class="score_hit" id="score_6_hit"></div>
+			<div class="ammo" id="ammo_6_1"></div>
+			<div class="ammo" id="ammo_6_2"></div>
+			<div class="ammo" id="ammo_6_3"></div>
+		</div>
+		<div>		
+			<input type="radio" name="shot_7_1" id="shot_7_1" class="shot" /><label for="shot_7_1"></label>
+			<input type="radio" name="shot_7_2" id="shot_7_2" class="shot" /><label for="shot_7_2"></label>
+			<input type="radio" name="shot_7_3" id="shot_7_3" class="shot" /><label for="shot_7_3"></label>
+			<input type="radio" name="duck_7" id="duck_7" class="duck" /><label for="duck_7"></label>
+			<div class="dog_catch"></div>
+			<div class="dog_laugh"></div>
+			<div class="score_miss" id="score_7_miss"></div>
+			<div class="score_hit" id="score_7_hit"></div>
+			<div class="ammo" id="ammo_7_1"></div>
+			<div class="ammo" id="ammo_7_2"></div>
+			<div class="ammo" id="ammo_7_3"></div>
+		</div>
+		<div>		
+			<input type="radio" name="shot_8_1" id="shot_8_1" class="shot" /><label for="shot_8_1"></label>
+			<input type="radio" name="shot_8_2" id="shot_8_2" class="shot" /><label for="shot_8_2"></label>
+			<input type="radio" name="shot_8_3" id="shot_8_3" class="shot" /><label for="shot_8_3"></label>
+			<input type="radio" name="duck_8" id="duck_8" class="duck" /><label for="duck_8"></label>
+			<div class="dog_catch"></div>
+			<div class="dog_laugh"></div>
+			<div class="score_miss" id="score_8_miss"></div>
+			<div class="score_hit" id="score_8_hit"></div>
+			<div class="ammo" id="ammo_8_1"></div>
+			<div class="ammo" id="ammo_8_2"></div>
+			<div class="ammo" id="ammo_8_3"></div>
+		</div>
+		<div>		
+			<input type="radio" name="shot_9_1" id="shot_9_1" class="shot" /><label for="shot_9_1"></label>
+			<input type="radio" name="shot_9_2" id="shot_9_2" class="shot" /><label for="shot_9_2"></label>
+			<input type="radio" name="shot_9_3" id="shot_9_3" class="shot" /><label for="shot_9_3"></label>
+			<input type="radio" name="duck_9" id="duck_9" class="duck" /><label for="duck_9"></label>
+			<div class="dog_catch"></div>
+			<div class="dog_laugh"></div>
+			<div class="score_miss" id="score_9_miss"></div>
+			<div class="score_hit" id="score_9_hit"></div>
+			<div class="ammo" id="ammo_9_1"></div>
+			<div class="ammo" id="ammo_9_2"></div>
+			<div class="ammo" id="ammo_9_3"></div>
+		</div>
+		<div>		
+			<input type="radio" name="shot_10_1" id="shot_10_1" class="shot" /><label for="shot_10_1"></label>
+			<input type="radio" name="shot_10_2" id="shot_10_2" class="shot" /><label for="shot_10_2"></label>
+			<input type="radio" name="shot_10_3" id="shot_10_3" class="shot" /><label for="shot_10_3"></label>
+			<input type="radio" name="duck_10" id="duck_10" class="duck" /><label for="duck_10"></label>
+			<div class="dog_catch"></div>
+			<div class="dog_laugh"></div>
+			<div class="score_miss" id="score_10_miss"></div>
+			<div class="score_hit" id="score_10_hit"></div>
+			<div class="ammo" id="ammo_10_1"></div>
+			<div class="ammo" id="ammo_10_2"></div>
+			<div class="ammo" id="ammo_10_3"></div>
+		</div>
+		<div class="ammo_wrapper"></div>
+		<div class="points_wrapper">
+			<div class="points">
+				<input type="radio" name="duck_1" class="point" checked>
+				<input type="radio" name="duck_2" class="point" checked>
+				<input type="radio" name="duck_3" class="point" checked>
+				<input type="radio" name="duck_4" class="point" checked>
+				<input type="radio" name="duck_5" class="point" checked>
+				<input type="radio" name="duck_6" class="point" checked>
+				<input type="radio" name="duck_7" class="point" checked>
+				<input type="radio" name="duck_8" class="point" checked>
+				<input type="radio" name="duck_9" class="point" checked>
+				<input type="radio" name="duck_10" class="point" checked>
+				<div class="points_bg"></div>
+			</div>
+		</div>
+		</form>
+	</div>
+
+  </body>
+</html>

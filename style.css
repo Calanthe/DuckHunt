@@ -1,0 +1,1414 @@
+* {
+	margin: 0;
+	padding: 0; 
+}
+
+body, html {
+	width: 100%;
+	height: 100%;
+	background: #000;
+}
+
+div.game-wrapper {
+	position: relative;
+	width: 430px;
+	height: 375px;
+	margin: 20px auto;
+	overflow: hidden;
+	cursor: crosshair;
+	z-index: 2;
+	background: url('./img/background.gif') top left no-repeat;
+}
+
+div.game-grass{
+	position: absolute;
+	width: 430px;
+	height: 143px;
+	bottom: 0px;
+	left: 0px;
+	overflow: hidden;
+	cursor: crosshair;
+	z-index: 4;
+	background: url('./img/background_grass.png') top left no-repeat;
+}
+
+div.game-start{
+	position: absolute;
+	width: 131px;
+	height: 31px;
+	top: -31px;
+	left: 148px;
+	z-index: 6;
+	pointer-events: none;
+	background: url('./img/start.png') top left no-repeat;
+	-webkit-animation: slide 3s linear 0s;
+	-webkit-animation-fill-mode: forwards;
+    -moz-animation: slide 3s linear 0s;
+	-moz-animation-fill-mode: forwards;
+    animation: slide 3s linear 0s;	
+	animation-fill-mode: forwards;
+}
+
+div.game-over{
+	position: absolute;
+	width: 131px;
+	height: 31px;
+	top: -31px;
+	left: 148px;
+	z-index: 6;
+	pointer-events: none;
+	background: url('./img/over.png') top left no-repeat;
+	-webkit-animation: slide 3s linear 83s;
+	-webkit-animation-fill-mode: forwards;
+    -moz-animation: slide 3s linear 83s;
+	-moz-animation-fill-mode: forwards;
+    animation: slide 3s linear 83s;
+	animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes slide{
+	  0%{ top: -31px; }
+	100%{ top: 375px; }
+}
+@-moz-keyframes slide{
+	  0%{ top: -31px; }
+	100%{ top: 375px; }
+}
+@keyframes slide{
+	  0%{ top: -31px; }
+	100%{ top: 375px; }
+}
+
+div.points_wrapper{
+	position: absolute;
+	top: 333px;
+	right: 36px;
+	width: 44px;
+	height: 14px;
+	background: #000;
+	z-index: 4;
+	overflow: hidden;
+}
+
+div.points_bg{
+	width: 44px;
+	height: 154px;
+	background: #000 url('./img/points.gif') 0% 100% no-repeat;
+}
+
+div.points{
+	height: 154px; 
+	width: 44px; 
+	position: absolute; 
+	top: -141px; 
+	left: 0px;
+}
+
+input.point{
+	display: block;
+	width: 7px;
+	height: 14px;
+}
+
+input.point:checked{
+	display:none;
+}
+
+/* Ducks, dogs, shots and score in general */
+.duck {
+	display:none;
+}
+
+input.duck + label{
+	position: absolute;
+	display: block;
+	top: 140px;
+	left: 430px;
+	width: 45px;
+	height: 41px;
+	cursor: crosshair;
+	z-index: 6;
+	background: url('./img/duck.gif') top left no-repeat;
+}
+
+.dog_catch {
+	position: absolute;
+	width: 59px;
+	height: 66px;
+	pointer-events: none;
+	background: url('./img/dog_catch.gif') top left no-repeat;
+	top: 250px;
+	left: 180px;
+	z-index: 3;
+}
+
+@-webkit-keyframes dog_catch{
+	  0% { top: 250px; }
+	 30% { top: 182px; }
+	 70% { top: 182px; }
+	100% { top: 250px; }
+}
+
+@-moz-keyframes dog_catch{
+	  0% { top: 250px; }
+	 30% { top: 182px; }
+	 70% { top: 182px; }
+	100% { top: 250px; }
+}
+
+@keyframes dog_catch{
+	  0% { top: 250px; }
+	 30% { top: 182px; }
+	 70% { top: 182px; }
+	100% { top: 250px; }
+}
+
+.dog_laugh {
+	position: absolute;
+	width: 54px;
+	height: 70px;
+	pointer-events: none;
+	background: url('./img/dog_laugh.gif') top left no-repeat;
+	top: 248px;
+	left: 191px;
+	z-index: 3;
+}
+
+@-webkit-keyframes dog_laugh{
+	  0% { top: 248px; }
+	 15% { top: 178px; }
+	 30% { top: 190px; }
+	 45% { top: 178px; }
+	 60% { top: 190px; }
+	 75% { top: 178px; }
+	 100% { top: 248px; }
+}
+
+@-moz-keyframes dog_laugh{
+	 0% { top: 248px; }
+	 15% { top: 178px; }
+	 30% { top: 190px; }
+	 45% { top: 178px; }
+	 60% { top: 190px; }
+	 75% { top: 178px; }
+	 100% { top: 248px; } 
+}
+
+@keyframes dog_laugh{
+	  0% { top: 248px; }
+	 15% { top: 178px; }
+	 30% { top: 190px; }
+	 45% { top: 178px; }
+	 60% { top: 190px; }
+	 75% { top: 178px; }
+	 100% { top: 248px; }
+}
+
+div.score_miss{
+	position: absolute;
+	width: 13px; 
+	height: 0px;
+	background: url('./img/score.gif') top left no-repeat;
+	z-index: 5;
+}
+
+div.score_hit{
+	background: url('./img/score_c.gif') top left no-repeat;
+	position: absolute;
+	width: 13px; 
+	height: 0px;
+	z-index: 5;
+}
+
+@-webkit-keyframes score{
+	0% { height: 0px; opacity: 0;}
+	100% { height: 12px; opacity: 1;}
+}
+
+@-moz-keyframes score{
+	0% { height: 0px; opacity: 0;}
+	100% { height: 12px; opacity: 1;}
+}
+
+@keyframes score{
+	0% { height: 0px; opacity: 0;}
+	100% { height: 12px; opacity: 1;}
+}
+
+div.ammo_wrapper{
+	position: absolute;
+	top: 334px;
+	left: 34px;
+	width: 36px;
+	height: 12px;
+	overflow: hidden;
+	z-index: 1;
+}
+
+div.ammo{
+	background: url('./img/ammo.gif') top left no-repeat;
+	position: absolute;
+	width: 8px; 
+	height: 13px;
+	z-index: 0;
+}
+
+input.shot{
+	display:none;
+}
+
+input.shot + label{
+	position: absolute;
+	display: block;
+	top: 0px;
+	left: 0px;
+	width: 430px;
+	cursor: crosshair;
+}
+
+/* Duck no 1 */
+
+input#duck_1 + label{
+	-webkit-animation: duck_1 6s linear 3s;
+	-moz-animation: duck_1 6s linear 3s;
+    -animation: duck_1 6s linear 3s;
+}
+
+input#duck_1:checked + label{
+	display:none;
+}
+
+@-webkit-keyframes duck_1{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	20% { top: 140px; left: 140px; opacity: 1;}
+	40% { top: 140px; left: 385px; opacity: 1;}
+	60% { top: 100px; left: 120px; opacity: 1;}
+	80% { top: 100px; left: 385px; opacity: 1;}
+	90% { top: 100px; left: 160px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@-moz-keyframes duck_1{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	20% { top: 140px; left: 140px; opacity: 1;}
+	40% { top: 140px; left: 385px; opacity: 1;}
+	60% { top: 100px; left: 120px; opacity: 1;}
+	80% { top: 100px; left: 385px; opacity: 1;}
+	90% { top: 100px; left: 160px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}	
+}
+
+@keyframes duck_1{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	20% { top: 140px; left: 140px; opacity: 1;}
+	40% { top: 140px; left: 385px; opacity: 1;}
+	60% { top: 100px; left: 120px; opacity: 1;}
+	80% { top: 100px; left: 385px; opacity: 1;}
+	90% { top: 100px; left: 160px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+#duck_1:checked ~ .dog_catch,
+#duck_2:checked ~ .dog_catch,
+#duck_3:checked ~ .dog_catch,
+#duck_4:checked ~ .dog_catch,
+#duck_5:checked ~ .dog_catch,
+#duck_6:checked ~ .dog_catch,
+#duck_7:checked ~ .dog_catch,
+#duck_8:checked ~ .dog_catch,
+#duck_9:checked ~ .dog_catch,
+#duck_10:checked ~ .dog_catch{
+	-webkit-animation: dog_catch 3s linear 1s;
+	-moz-animation: dog_catch 3s linear 1s;
+    animation: dog_catch 3s linear 1s;
+}
+
+#duck_1 ~ .dog_laugh{
+	-webkit-animation: dog_laugh 1.5s linear 9s;
+	-moz-animation: dog_laugh 1.5s linear 9s;
+	animation: dog_laugh 1.5s linear 9s;
+}
+
+#duck_1:checked ~ .dog_laugh,
+#duck_2:checked ~ .dog_laugh,
+#duck_3:checked ~ .dog_laugh,
+#duck_4:checked ~ .dog_laugh,
+#duck_5:checked ~ .dog_laugh,
+#duck_6:checked ~ .dog_laugh,
+#duck_7:checked ~ .dog_laugh,
+#duck_8:checked ~ .dog_laugh,
+#duck_9:checked ~ .dog_laugh,
+#duck_10:checked ~ .dog_laugh{
+	display: none;
+}
+
+#score_1_miss{
+	bottom: 27px; 
+	left: 153px;
+	opacity: 0;
+	-webkit-animation: score 0.1s linear 9s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: score 0.1s linear 9s;
+	-moz-animation-fill-mode: forwards;
+	animation: score 0.1s linear 9s;
+	animation-fill-mode: forwards;
+}
+
+#duck_1:checked ~#score_1_miss,
+#duck_2:checked ~#score_2_miss,
+#duck_3:checked ~#score_3_miss,
+#duck_4:checked ~#score_4_miss,
+#duck_5:checked ~#score_5_miss,
+#duck_6:checked ~#score_6_miss,
+#duck_7:checked ~#score_7_miss,
+#duck_8:checked ~#score_8_miss,
+#duck_9:checked ~#score_9_miss,
+#duck_10:checked ~#score_10_miss{
+	display: none;
+}
+
+#score_1_hit{
+	bottom: 27px; 
+	left: 153px;
+	opacity: 0;
+}
+
+#duck_1:checked ~ #score_1_hit,
+#duck_2:checked ~ #score_2_hit,
+#duck_3:checked ~ #score_3_hit,
+#duck_4:checked ~ #score_4_hit,
+#duck_5:checked ~ #score_5_hit,
+#duck_6:checked ~ #score_6_hit,
+#duck_7:checked ~ #score_7_hit,
+#duck_8:checked ~ #score_8_hit,
+#duck_9:checked ~ #score_9_hit,
+#duck_10:checked ~ #score_10_hit{
+	-webkit-animation: score 0.1s linear 0.1s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: score 0.1s linear 0.1s;
+	-moz-animation-fill-mode: forwards;
+	animation: score 0.1s linear 0.1s;
+	animation-fill-mode: forwards;
+}
+
+#ammo_1_1,
+#ammo_2_1,
+#ammo_3_1,
+#ammo_4_1,
+#ammo_5_1,
+#ammo_6_1,
+#ammo_7_1,
+#ammo_8_1,
+#ammo_9_1,
+#ammo_10_1{
+	bottom: 28px; 
+	left: 58px;
+}
+
+#ammo_1_2,
+#ammo_2_2,
+#ammo_3_2,
+#ammo_4_2,
+#ammo_5_2,
+#ammo_6_2,
+#ammo_7_2,
+#ammo_8_2,
+#ammo_9_2,
+#ammo_10_2{
+	bottom: 28px; 
+	left: 47px;
+}
+
+#ammo_1_3,
+#ammo_2_3,
+#ammo_3_3,
+#ammo_4_3,
+#ammo_5_3,
+#ammo_6_3,
+#ammo_7_3,
+#ammo_8_3,
+#ammo_9_3,
+#ammo_10_3{
+	bottom: 28px; 
+	left: 36px;
+}
+
+#ammo_1_1,
+#ammo_1_2,
+#ammo_1_3{
+	-webkit-animation: ammo 0.1s linear 9s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: ammo 0.1s linear 9s;
+	-moz-animation-fill-mode: forwards;
+	animation: ammo 0.1s linear 9s;
+	animation-fill-mode: forwards;
+	z-index: 6;
+}
+
+@-moz-keyframes ammo{
+	0% { z-index: 6; }
+	99% { z-index: 6; }
+	100% { z-index: 0; }
+}
+
+@-webkit-keyframes ammo{
+	0% { z-index: 6; }
+	99% { z-index: 6; }
+	100% { z-index: 0; }
+}
+
+@keyframes ammo{
+	0% { z-index: 6; }
+	99% { z-index: 6; }
+	100% { z-index: 0; }
+}
+
+input#shot_1_1 + label{
+	z-index: 3;
+	height: 230px;
+}
+
+input#shot_1_2 + label{
+	z-index: 2;
+	height: 230px;
+}
+
+input#shot_1_3 + label{
+	z-index: 1;
+	height: 230px;
+}
+
+input#shot_1_1 + label,
+input#shot_1_1 + label,
+input#shot_1_1 + label{
+	-webkit-animation: shot 0.1s linear 9s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+input#shot_1_1:checked + label,
+input#shot_2_1:checked + label,
+input#shot_3_1:checked + label,
+input#shot_4_1:checked + label,
+input#shot_5_1:checked + label,
+input#shot_6_1:checked + label,
+input#shot_7_1:checked + label,
+input#shot_8_1:checked + label,
+input#shot_9_1:checked + label,
+input#shot_10_1:checked + label{
+	display:none;
+}
+
+input#shot_1_2:checked + label,
+input#shot_2_2:checked + label,
+input#shot_3_2:checked + label,
+input#shot_4_2:checked + label,
+input#shot_5_2:checked + label,
+input#shot_6_2:checked + label,
+input#shot_7_2:checked + label,
+input#shot_8_2:checked + label,
+input#shot_9_2:checked + label,
+input#shot_10_2:checked + label{
+	display:none;
+}
+
+input#shot_1_3:checked + label,
+input#shot_2_3:checked + label,
+input#shot_3_3:checked + label,
+input#shot_4_3:checked + label,
+input#shot_5_3:checked + label,
+input#shot_6_3:checked + label,
+input#shot_7_3:checked + label,
+input#shot_8_3:checked + label,
+input#shot_9_3:checked + label,
+input#shot_10_3:checked + label{
+	display:none;
+}
+
+@-webkit-keyframes shot{
+	0% { height: 230px; }
+	99% { height: 230px; }
+	100% { height: 0px; }
+}
+
+@-moz-keyframes shot{
+	0% { height: 230px; }
+	99% { height: 230px; }
+	100% { height: 0px; }
+}
+
+@keyframes shot{
+	0% { height: 230px; }
+	99% { height: 230px; }
+	100% { height: 0px; }
+}
+
+input#shot_1_1:checked ~ #ammo_1_1,
+input#shot_1_2:checked ~ #ammo_1_2,
+input#shot_1_3:checked ~ #ammo_1_3,
+input#shot_2_1:checked ~ #ammo_2_1,
+input#shot_2_2:checked ~ #ammo_2_2,
+input#shot_2_3:checked ~ #ammo_2_3,
+input#shot_3_1:checked ~ #ammo_3_1,
+input#shot_3_2:checked ~ #ammo_3_2,
+input#shot_3_3:checked ~ #ammo_3_3,
+input#shot_4_1:checked ~ #ammo_4_1,
+input#shot_4_2:checked ~ #ammo_4_2,
+input#shot_4_3:checked ~ #ammo_4_3,
+input#shot_5_1:checked ~ #ammo_5_1,
+input#shot_5_2:checked ~ #ammo_5_2,
+input#shot_5_3:checked ~ #ammo_5_3,
+input#shot_6_1:checked ~ #ammo_6_1,
+input#shot_6_2:checked ~ #ammo_6_2,
+input#shot_6_3:checked ~ #ammo_6_3,
+input#shot_7_1:checked ~ #ammo_7_1,
+input#shot_7_2:checked ~ #ammo_7_2,
+input#shot_7_3:checked ~ #ammo_7_3,
+input#shot_8_1:checked ~ #ammo_8_1,
+input#shot_8_2:checked ~ #ammo_8_2,
+input#shot_8_3:checked ~ #ammo_8_3,
+input#shot_9_1:checked ~ #ammo_9_1,
+input#shot_9_2:checked ~ #ammo_9_2,
+input#shot_9_3:checked ~ #ammo_9_3,
+input#shot_10_1:checked ~ #ammo_10_1,
+input#shot_10_2:checked ~ #ammo_10_2,
+input#shot_10_3:checked ~ #ammo_10_3{
+	display: none;
+}
+
+input#shot_1_3:checked ~ input.duck + label,
+input#shot_2_3:checked ~ input.duck + label,
+input#shot_3_3:checked ~ input.duck + label,
+input#shot_4_3:checked ~ input.duck + label,
+input#shot_5_3:checked ~ input.duck + label,
+input#shot_6_3:checked ~ input.duck + label,
+input#shot_7_3:checked ~ input.duck + label,
+input#shot_8_3:checked ~ input.duck + label,
+input#shot_9_3:checked ~ input.duck + label,
+input#shot_10_3:checked ~ input.duck + label{
+	pointer-events: none;
+}
+
+/* Duck no 2 */
+
+input#duck_2 + label{
+	-webkit-animation: duck_2 6s linear 11s;
+	-moz-animation: duck_2 6s linear 11s;
+    -animation: duck_2 6s linear 11s;
+}
+
+input#duck_2:checked + label{
+	display:none;
+}
+
+@-webkit-keyframes duck_2{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	15% { top: 140px; left: 250px; opacity: 1;}
+	25% { top: 190px; left: 200px; opacity: 1;}
+	40% { top: 40px; left: 120px; opacity: 1;}
+	60% { top: 100px; left: 385px; opacity: 1;}
+	80% { top: 190px; left: 200px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@-moz-keyframes duck_2{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	15% { top: 140px; left: 250px; opacity: 1;}
+	25% { top: 190px; left: 200px; opacity: 1;}
+	40% { top: 40px; left: 120px; opacity: 1;}
+	60% { top: 100px; left: 385px; opacity: 1;}
+	80% { top: 190px; left: 200px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@keyframes duck_2{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	15% { top: 140px; left: 250px; opacity: 1;}
+	25% { top: 190px; left: 200px; opacity: 1;}
+	40% { top: 40px; left: 120px; opacity: 1;}
+	60% { top: 100px; left: 385px; opacity: 1;}
+	80% { top: 190px; left: 200px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+#duck_2 ~ .dog_laugh{
+	-webkit-animation: dog_laugh 1.5s linear 17s;
+	-moz-animation: dog_laugh 1.5s linear 17s;
+	animation: dog_laugh 1.5s linear 17s;
+}
+
+#score_2_miss{
+	bottom: 27px; 
+	left: 166px;
+	opacity: 0;
+	-webkit-animation: score 0.1s linear 17s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: score 0.1s linear 17s;
+	-moz-animation-fill-mode: forwards;
+	animation: score 0.1s linear 17s;
+	animation-fill-mode: forwards;
+}
+
+#score_2_hit{
+	bottom: 27px; 
+	left: 166px;
+	opacity: 0;
+}
+
+#ammo_2_1,
+#ammo_2_2,
+#ammo_2_3{
+	-webkit-animation: ammo 6s linear 11s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: ammo 6s linear 11s;
+	-moz-animation-fill-mode: forwards;
+	animation: ammo 6s linear 11s;
+	animation-fill-mode: forwards;
+	z-index: 0;
+}
+
+input#shot_2_1 + label,
+input#shot_3_1 + label,
+input#shot_4_1 + label,
+input#shot_5_1 + label,
+input#shot_6_1 + label,
+input#shot_7_1 + label,
+input#shot_8_1 + label,
+input#shot_9_1 + label,
+input#shot_10_1 + label{
+	z-index: 3;
+}
+
+input#shot_2_2 + label,
+input#shot_3_2 + label,
+input#shot_4_2 + label,
+input#shot_5_2 + label,
+input#shot_6_2 + label,
+input#shot_7_2 + label,
+input#shot_8_2 + label,
+input#shot_9_2 + label,
+input#shot_10_2 + label{ 
+	z-index: 2;
+}
+
+input#shot_2_3 + label,
+input#shot_3_3 + label,
+input#shot_4_3 + label,
+input#shot_5_3 + label,
+input#shot_6_3 + label,
+input#shot_7_3 + label,
+input#shot_8_3 + label,
+input#shot_9_3 + label,
+input#shot_10_3 + label{ 
+	z-index: 1;
+}
+
+input#shot_2_1 + label,
+input#shot_2_2 + label,
+input#shot_2_3 + label{
+	-webkit-animation: shot 6s linear 11s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: shot 6s linear 11s;
+	-moz-animation-fill-mode: forwards;
+	animation: shot 6s linear 11s;
+	animation-fill-mode: forwards;
+}
+
+/* Duck no 3 */
+
+input#duck_3 + label{
+	-webkit-animation: duck_3 6s linear 19s;
+	-moz-animation: duck_3 6s linear 19s;
+    -animation: duck_3 6s linear 19s;
+}
+
+input#duck_3:checked + label{
+	display:none;
+}
+
+@-webkit-keyframes duck_3{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	15% { top: 40px; left: 250px; opacity: 1;}
+	25% { top: 190px; left: 200px; opacity: 1;}
+	40% { top: 0px; left: 100px; opacity: 1;}
+	60% { top: 100px; left: 300px; opacity: 1;}
+	80% { top: 190px; left: 200px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@-moz-keyframes duck_3{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	15% { top: 40px; left: 250px; opacity: 1;}
+	25% { top: 190px; left: 200px; opacity: 1;}
+	40% { top: 0px; left: 100px; opacity: 1;}
+	60% { top: 100px; left: 300px; opacity: 1;}
+	80% { top: 190px; left: 200px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@keyframes duck_3{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	15% { top: 40px; left: 250px; opacity: 1;}
+	25% { top: 190px; left: 200px; opacity: 1;}
+	40% { top: 0px; left: 100px; opacity: 1;}
+	60% { top: 100px; left: 300px; opacity: 1;}
+	80% { top: 190px; left: 200px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+#duck_3 ~ .dog_laugh{
+	-webkit-animation: dog_laugh 1.5s linear 25s;
+	-moz-animation: dog_laugh 1.5s linear 25s;
+	animation: dog_laugh 1.5s linear 25s;
+}
+
+#score_3_miss{
+	bottom: 27px; 
+	left: 180px;
+	opacity: 0;
+	-webkit-animation: score 0.1s linear 25s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: score 0.1s linear 25s;
+	-moz-animation-fill-mode: forwards;
+	animation: score 0.1s linear 25s;
+	animation-fill-mode: forwards;
+}
+
+#score_3_hit{
+	bottom: 27px; 
+	left: 180px;
+	opacity: 0;
+}
+
+#ammo_3_1,
+#ammo_3_2,
+#ammo_3_3{
+	-webkit-animation: ammo 6s linear 19s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: ammo 6s linear 19s;
+	-moz-animation-fill-mode: forwards;
+	animation: ammo 6s linear 19s;
+	animation-fill-mode: forwards;
+	z-index: 0;
+}
+
+input#shot_3_1 + label,
+input#shot_3_2 + label,
+input#shot_3_3 + label{
+	-webkit-animation: shot 6s linear 19s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: shot 6s linear 19s;
+	-moz-animation-fill-mode: forwards;
+	animation: shot 6s linear 19s;
+	animation-fill-mode: forwards;
+}
+
+/* Duck no 4 */
+
+input#duck_4 + label{
+	-webkit-animation: duck_4 6s linear 27s;
+	-moz-animation: duck_4 6s linear 27s;
+    -animation: duck_4 6s linear 27s;
+}
+
+input#duck_4:checked + label{
+	display:none;
+}
+
+@-webkit-keyframes duck_4{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	20% { top: 0px; left: 200px; opacity: 1;}
+	40% { top: 190px; left: 250px; opacity: 1;}
+	60% { top: 10px; left: 120px; opacity: 1;}
+	80% { top: 180px; left: 250px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@-moz-keyframes duck_4{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	20% { top: 0px; left: 200px; opacity: 1;}
+	40% { top: 190px; left: 250px; opacity: 1;}
+	60% { top: 10px; left: 120px; opacity: 1;}
+	80% { top: 180px; left: 250px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@keyframes duck_4{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	20% { top: 0px; left: 200px; opacity: 1;}
+	40% { top: 190px; left: 250px; opacity: 1;}
+	60% { top: 10px; left: 120px; opacity: 1;}
+	80% { top: 180px; left: 250px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+#duck_4 ~ .dog_laugh{
+	-webkit-animation: dog_laugh 1.5s linear 33s;
+	-moz-animation: dog_laugh 1.5s linear 33s;
+	animation: dog_laugh 1.5s linear 33s;
+}
+
+#score_4_miss{
+	bottom: 27px; 
+	left: 193px;
+	opacity: 0;
+	-webkit-animation: score 0.1s linear 33s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: score 0.1s linear 33s;
+	-moz-animation-fill-mode: forwards;
+	animation: score 0.1s linear 33s;
+	animation-fill-mode: forwards;
+}
+
+#score_4_hit{
+	bottom: 27px; 
+	left: 193px;
+	opacity: 0;
+}
+
+#ammo_4_1,
+#ammo_4_2,
+#ammo_4_3{
+	-webkit-animation: ammo 6s linear 27s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: ammo 6s linear 27s;
+	-moz-animation-fill-mode: forwards;
+	animation: ammo 6s linear 27s;
+	animation-fill-mode: forwards;
+	z-index: 0;
+}
+
+input#shot_4_1 + label,
+input#shot_4_2 + label,
+input#shot_4_3 + label{
+	-webkit-animation: shot 6s linear 27s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: shot 6s linear 27s;
+	-moz-animation-fill-mode: forwards;
+	animation: shot 6s linear 27s;
+	animation-fill-mode: forwards;
+}
+
+/* Duck no 5 */
+
+input#duck_5 + label{
+	-webkit-animation: duck_5 6s linear 35s;
+	-moz-animation: duck_5 6s linear 35s;
+    -animation: duck_5 6s linear 35s;
+}
+
+input#duck_5:checked + label{
+	display:none;
+}
+
+@-webkit-keyframes duck_5{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	20% { top: 0px; left: 200px; opacity: 1;}
+	40% { top: 190px; left: 200px; opacity: 1;}
+	60% { top: 0px; left: 220px; opacity: 1;}
+	80% { top: 190px; left: 250px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@-moz-keyframes duck_5{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	20% { top: 0px; left: 200px; opacity: 1;}
+	40% { top: 190px; left: 200px; opacity: 1;}
+	60% { top: 0px; left: 140px; opacity: 1;}
+	80% { top: 190px; left: 140px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@keyframes duck_5{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	20% { top: 0px; left: 200px; opacity: 1;}
+	40% { top: 190px; left: 200px; opacity: 1;}
+	60% { top: 0px; left: 220px; opacity: 1;}
+	80% { top: 190px; left: 250px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+#duck_5 ~ .dog_laugh{
+	-webkit-animation: dog_laugh 1.5s linear 41s;
+	-moz-animation: dog_laugh 1.5s linear 41s;
+	animation: dog_laugh 1.5s linear 41s;
+}
+
+#score_5_miss{
+	bottom: 27px; 
+	left: 208px;
+	opacity: 0;
+	-webkit-animation: score 0.1s linear 41s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: score 0.1s linear 41s;
+	-moz-animation-fill-mode: forwards;
+	animation: score 0.1s linear 41s;
+	animation-fill-mode: forwards;
+}
+
+#score_5_hit{
+	bottom: 27px; 
+	left: 208px;
+	opacity: 0;
+}
+
+#ammo_5_1,
+#ammo_5_2,
+#ammo_5_3{
+	-webkit-animation: ammo 6s linear 35s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: ammo 6s linear 35s;
+	-moz-animation-fill-mode: forwards;
+	animation: ammo 6s linear 35s;
+	animation-fill-mode: forwards;
+	z-index: 0;
+}
+
+input#shot_5_1 + label,
+input#shot_5_2 + label,
+input#shot_5_3 + label{
+	-webkit-animation: shot 6s linear 35s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: shot 6s linear 35s;
+	-moz-animation-fill-mode: forwards;
+	animation: shot 6s linear 35s;
+	animation-fill-mode: forwards;
+}
+
+/* Duck no 6 */
+
+input#duck_6 + label{
+	-webkit-animation: duck_6 6s linear 43s;
+	-moz-animation: duck_6 6s linear 43s;
+    -animation: duck_6 6s linear 43s;
+}
+
+input#duck_6:checked + label{
+	display:none;
+}
+
+@-webkit-keyframes duck_6{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	15% { top: 100px; left: 250px; opacity: 1;}
+	25% { top: 190px; left: 200px; opacity: 1;}
+	40% { top: 0px; left: 120px; opacity: 1;}
+	60% { top: 100px; left: 385px; opacity: 1;}
+	80% { top: 190px; left: 120px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@-moz-keyframes duck_6{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	15% { top: 100px; left: 250px; opacity: 1;}
+	25% { top: 190px; left: 200px; opacity: 1;}
+	40% { top: 0px; left: 120px; opacity: 1;}
+	60% { top: 100px; left: 385px; opacity: 1;}
+	80% { top: 190px; left: 120px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@keyframes duck_6{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	15% { top: 100px; left: 250px; opacity: 1;}
+	25% { top: 190px; left: 200px; opacity: 1;}
+	40% { top: 0px; left: 120px; opacity: 1;}
+	60% { top: 100px; left: 385px; opacity: 1;}
+	80% { top: 190px; left: 120px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+#duck_6 ~ .dog_laugh{
+	-webkit-animation: dog_laugh 1.5s linear 49s;
+	-moz-animation: dog_laugh 1.5s linear 49s;
+	animation: dog_laugh 1.5s linear 49s;
+}
+
+#score_6_miss{
+	bottom: 27px; 
+	left: 221px;
+	opacity: 0;
+	-webkit-animation: score 0.1s linear 49s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: score 0.1s linear 49s;
+	-moz-animation-fill-mode: forwards;
+	animation: score 0.1s linear 49s;
+	animation-fill-mode: forwards;
+}
+
+#score_6_hit{
+	bottom: 27px; 
+	left: 221px;
+	opacity: 0;
+}
+
+#ammo_6_1,
+#ammo_6_2,
+#ammo_6_3{
+	-webkit-animation: ammo 6s linear 43s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: ammo 6s linear 43s;
+	-moz-animation-fill-mode: forwards;
+	animation: ammo 6s linear 43s;
+	animation-fill-mode: forwards;
+	z-index: 0;
+}
+
+input#shot_6_1 + label,
+input#shot_6_2 + label,
+input#shot_6_3 + label{
+	-webkit-animation: shot 6s linear 43s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: shot 6s linear 43s;
+	-moz-animation-fill-mode: forwards;
+	animation: shot 6s linear 43s;
+	animation-fill-mode: forwards;
+}
+
+/* Duck no 7 */
+
+input#duck_7 + label{
+	-webkit-animation: duck_7 6s linear 51s;
+	-moz-animation: duck_7 6s linear 51s;
+    -animation: duck_7 6s linear 51s;
+}
+
+input#duck_7:checked + label{
+	display:none;
+}
+
+@-webkit-keyframes duck_7{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	20% { top: 0px; left: 120px; opacity: 1;}
+	40% { top: 190px; left: 250px; opacity: 1;}
+	60% { top: 10px; left: 430px; opacity: 1;}
+	80% { top: 180px; left: 250px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@-moz-keyframes duck_7{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	20% { top: 0px; left: 120px; opacity: 1;}
+	40% { top: 190px; left: 250px; opacity: 1;}
+	60% { top: 10px; left: 430px; opacity: 1;}
+	80% { top: 180px; left: 250px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@keyframes duck_7{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	20% { top: 0px; left: 120px; opacity: 1;}
+	40% { top: 190px; left: 250px; opacity: 1;}
+	60% { top: 10px; left: 430px; opacity: 1;}
+	80% { top: 180px; left: 250px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+#duck_7 ~ .dog_laugh{
+	-webkit-animation: dog_laugh 1.5s linear 57s;
+	-moz-animation: dog_laugh 1.5s linear 57s;
+	animation: dog_laugh 1.5s linear 57s;
+}
+
+#score_7_miss{
+	bottom: 27px; 
+	left: 234px;
+	opacity: 0;
+	-webkit-animation: score 0.1s linear 57s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: score 0.1s linear 57s;
+	-moz-animation-fill-mode: forwards;
+	animation: score 0.1s linear 57s;
+	animation-fill-mode: forwards;
+}
+
+#score_7_hit{
+	bottom: 27px; 
+	left: 234px;
+	opacity: 0;
+}
+
+#ammo_7_1,
+#ammo_7_2,
+#ammo_7_3{
+	-webkit-animation: ammo 6s linear 51s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: ammo 6s linear 51s;
+	-moz-animation-fill-mode: forwards;
+	animation: ammo 6s linear 51s;
+	animation-fill-mode: forwards;
+	z-index: 0;
+}
+
+input#shot_7_1 + label,
+input#shot_7_2 + label,
+input#shot_7_3 + label{
+	-webkit-animation: shot 6s linear 51s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: shot 6s linear 51s;
+	-moz-animation-fill-mode: forwards;
+	animation: shot 6s linear 51s;
+	animation-fill-mode: forwards;
+}
+
+/* Duck no 8 */
+
+input#duck_8 + label{
+	-webkit-animation: duck_8 6s linear 59s;
+	-moz-animation: duck_8 6s linear 59s;
+    -animation: duck_8 6s linear 59s;
+}
+
+input#duck_8:checked + label{
+	display:none;
+}
+
+@-webkit-keyframes duck_8{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	20% { top: 0px; left: 200px; opacity: 1;}
+	40% { top: 190px; left: 120px; opacity: 1;}
+	60% { top: 0px; left: 450px; opacity: 1;}
+	80% { top: 190px; left: 250px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@-moz-keyframes duck_8{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	20% { top: 0px; left: 200px; opacity: 1;}
+	40% { top: 190px; left: 120px; opacity: 1;}
+	60% { top: 0px; left: 450px; opacity: 1;}
+	80% { top: 190px; left: 250px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@keyframes duck_8{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	20% { top: 0px; left: 200px; opacity: 1;}
+	40% { top: 190px; left: 120px; opacity: 1;}
+	60% { top: 0px; left: 450px; opacity: 1;}
+	80% { top: 190px; left: 250px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+#duck_8 ~ .dog_laugh{
+	-webkit-animation: dog_laugh 1.5s linear 65s;
+	-moz-animation: dog_laugh 1.5s linear 65s;
+	animation: dog_laugh 1.5s linear 65s;
+}
+
+#score_8_miss{
+	bottom: 27px; 
+	left: 247px;
+	opacity: 0;
+	-webkit-animation: score 0.1s linear 65s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: score 0.1s linear 65s;
+	-moz-animation-fill-mode: forwards;
+	animation: score 0.1s linear 65s;
+	animation-fill-mode: forwards;
+}
+
+#score_8_hit{
+	bottom: 27px; 
+	left: 247px;
+	opacity: 0;
+}
+
+#ammo_8_1,
+#ammo_8_2,
+#ammo_8_3{
+	-webkit-animation: ammo 6s linear 59s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: ammo 6s linear 59s;
+	-moz-animation-fill-mode: forwards;
+	animation: ammo 6s linear 59s;
+	animation-fill-mode: forwards;
+	z-index: 0;
+}
+
+input#shot_8_1 + label,
+input#shot_8_2 + label,
+input#shot_8_3 + label{
+	-webkit-animation: shot 6s linear 59s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: shot 6s linear 59s;
+	-moz-animation-fill-mode: forwards;
+	animation: shot 6s linear 59s;
+	animation-fill-mode: forwards;
+}
+
+/* Duck no 9 */
+
+input#duck_9 + label{
+	-webkit-animation: duck_9 6s linear 67s;
+	-moz-animation: duck_9 6s linear 67s;
+    -animation: duck_9 6s linear 67s;
+}
+
+input#duck_9:checked + label{
+	display:none;
+}
+
+@-webkit-keyframes duck_9{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	20% { top: 30px; left: 140px; opacity: 1;}
+	40% { top: 140px; left: 140px; opacity: 1;}
+	60% { top: 0px; left: 400px; opacity: 1;}
+	80% { top: 100px; left: 385px; opacity: 1;}
+	90% { top: 140px; left: 140px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@-moz-keyframes duck_9{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	20% { top: 30px; left: 140px; opacity: 1;}
+	40% { top: 140px; left: 140px; opacity: 1;}
+	60% { top: 0px; left: 400px; opacity: 1;}
+	80% { top: 100px; left: 385px; opacity: 1;}
+	90% { top: 140px; left: 140px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@keyframes duck_9{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	20% { top: 30px; left: 140px; opacity: 1;}
+	40% { top: 140px; left: 140px; opacity: 1;}
+	60% { top: 0px; left: 400px; opacity: 1;}
+	80% { top: 100px; left: 385px; opacity: 1;}
+	90% { top: 140px; left: 140px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+#duck_9 ~ .dog_laugh{
+	-webkit-animation: dog_laugh 1.5s linear 73s;
+	-moz-animation: dog_laugh 1.5s linear 73s;
+	animation: dog_laugh 1.5s linear 73s;
+}
+
+#score_9_miss{
+	bottom: 27px; 
+	left: 261px;
+	opacity: 0;
+	-webkit-animation: score 0.1s linear 73s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: score 0.1s linear 73s;
+	-moz-animation-fill-mode: forwards;
+	animation: score 0.1s linear 73s;
+	animation-fill-mode: forwards;
+}
+
+#score_9_hit{
+	bottom: 27px; 
+	left: 261px;
+	opacity: 0;
+}
+
+#ammo_9_1,
+#ammo_9_2,
+#ammo_9_3{
+	-webkit-animation: ammo 6s linear 67s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: ammo 6s linear 67s;
+	-moz-animation-fill-mode: forwards;
+	animation: ammo 6s linear 67s;
+	animation-fill-mode: forwards;
+	z-index: 0;
+}
+
+input#shot_9_1 + label,
+input#shot_9_2 + label,
+input#shot_9_3 + label{
+	-webkit-animation: shot 6s linear 67s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: shot 6s linear 67s;
+	-moz-animation-fill-mode: forwards;
+	animation: shot 6s linear 67s;
+	animation-fill-mode: forwards;
+}
+
+/* Duck no 10 */
+
+input#duck_10 + label{
+	-webkit-animation: duck_10 6s linear 75s;
+	-moz-animation: duck_10 6s linear 75s;
+    -animation: duck_10 6s linear 75s;
+}
+
+input#duck_10:checked + label{
+	display:none;
+}
+
+@-webkit-keyframes duck_10{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	15% { top: 140px; left: 200px; opacity: 1;}
+	25% { top: 0px; left: 430px; opacity: 1;}
+	40% { top: 140px; left: 140px; opacity: 1;}
+	60% { top: 100px; left: 385px; opacity: 1;}
+	80% { top: 190px; left: 200px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@-moz-keyframes duck_10{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	15% { top: 140px; left: 200px; opacity: 1;}
+	25% { top: 0px; left: 430px; opacity: 1;}
+	40% { top: 140px; left: 140px; opacity: 1;}
+	60% { top: 100px; left: 385px; opacity: 1;}
+	80% { top: 190px; left: 200px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+@keyframes duck_10{
+	0% { top: 140px; left: 430px; opacity: 1;}
+	15% { top: 140px; left: 200px; opacity: 1;}
+	25% { top: 0px; left: 430px; opacity: 1;}
+	40% { top: 140px; left: 140px; opacity: 1;}
+	60% { top: 100px; left: 385px; opacity: 1;}
+	80% { top: 190px; left: 200px; opacity: 1;}
+	100% { top: 0px; left: 200px; opacity: 0;}
+}
+
+#duck_10 ~ .dog_laugh{
+	-webkit-animation: dog_laugh 1.5s linear 81s;
+	-moz-animation: dog_laugh 1.5s linear 81s;
+	animation: dog_laugh 1.5s linear 81s;
+}
+
+#score_10_miss{
+	bottom: 27px; 
+	left: 274px;
+	opacity: 0;
+	-webkit-animation: score 0.1s linear 81s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: score 0.1s linear 81s;
+	-moz-animation-fill-mode: forwards;
+	animation: score 0.1s linear 81s;
+	animation-fill-mode: forwards;
+}
+
+#score_10_hit{
+	bottom: 27px; 
+	left: 274px;
+	opacity: 0;
+}
+
+#ammo_10_1,
+#ammo_10_2,
+#ammo_10_3{
+	-webkit-animation: ammo 6s linear 75s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: ammo 6s linear 75s;
+	-moz-animation-fill-mode: forwards;
+	animation: ammo 6s linear 75s;
+	animation-fill-mode: forwards;
+	z-index: 0;
+}
+
+input#shot_10_1 + label,
+input#shot_10_2 + label,
+input#shot_10_3 + label{
+	-webkit-animation: shot 6s linear 75s;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation: shot 6s linear 75s;
+	-moz-animation-fill-mode: forwards;
+	animation: shot 6s linear 75s;
+	animation-fill-mode: forwards;
+}
