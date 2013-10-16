@@ -93,7 +93,7 @@ div.points_wrapper{
 div.points_bg{
 	width: 44px;
 	height: 154px;
-	background: #000 url('./img/points.gif') 0% 100% no-repeat;
+	background: #000 url('./img/points.gif') 0% 0% no-repeat;
 }
 
 div.points{
@@ -105,7 +105,7 @@ div.points{
 }
 
 input.point{
-	display: block;
+	display: block;	
 	width: 7px;
 	height: 14px;
 }
